@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Eric News Network{% endblock %}
+
+	{% block jumbotron %}
+		<!--div class="jumbotron">
+			  <img src="../../static/img/gyy0.png" class="img-responsive" alt="Responsive image">
+		  
+		</div-->
+
+		
+
+	{% endblock %}
+
+{% block content %}
+
+
+       <h1>Latest News </h1>
+
+		{% if latest_article_list%}
+			<ul>
+				{%for article in latest_article_list %}
+					<li><a href="{% url 'detail' article.id %}">{{article.article_title}}</a></li>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<p>No News are available.</p>
+		{% endif %}
+
+{% endblock %}

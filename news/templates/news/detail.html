@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Articles for mine{% endblock %}
+
+
+{% block content %}
+<div class="page-header">
+{% if article %}
+	<h1>{{article.article_title}}</h1>
+	<h2>{{article.article_author}}</h2>
+	<h2>{{article.pub_date}}</h2>
+	<p>{{article.article_content}}</p>
+
+{%else %}
+
+{% endif %}
+</div>
+{% endblock %}
