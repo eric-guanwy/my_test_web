@@ -48,29 +48,42 @@
     </div>
 {% endblock %}
 
-	{% block jumbotron %}
-		<!--div class="jumbotron">
-			  <img src="../../static/img/gyy0.png" class="img-responsive" alt="Responsive image">
-		  
-		</div-->
 
-		
 
-	{% endblock %}
 
 {% block content %}
+<!-- Main jumbotron for a primary marketing message or call to action -->
+ 
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+	      	{% if latest_article_list%}
+				<ul>
+					{%for article in latest_article_list %}
+						<div class="col-md-4">
+				          <h2><a href="{% url 'detail' article.id %}">{{article.article_title}}</a></h2>
+				          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+				          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+				        </div>
+						
+					{% endfor %}
+				</ul>
+			{% else %}
+				<p>No News are available.</p>
+			{% endif %}
+                
+      </div>
+     </div>
+
+      <hr>
+<!-- /container -->
 
 
-       <h1>Latest News </h1>
-
-		{% if latest_article_list%}
-			<ul>
-				{%for article in latest_article_list %}
-					<li><a href="{% url 'detail' article.id %}">{{article.article_title}}</a></li>
-				{% endfor %}
-			</ul>
-		{% else %}
-			<p>No News are available.</p>
-		{% endif %}
+     
+      <footer>
+        <p>Eric Guan &copy; Company 2016</p>
+      </footer>
+    </div> 
 
 {% endblock %}
