@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Eric News Network{% endblock %}
+
+
+
+{% block carousel %} 
+   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="../../static/img/hot-air-1373167_1920.jpg" alt="...">
+          <div class="carousel-caption">
+            <h3>Hot Air Balloon</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </div>
+        <div class="item">
+          <img src="../../static/img/beach-1209229_1920.jpg" alt="...">
+          <div class="carousel-caption">
+            <h3>海滩假期</h3>
+            <p>Walk through China,to experience the extrame beautiful scence.</p>
+          </div>
+        </div>
+        <div class="item">
+          <img src="../../static/img/valley-of-fire-1303617_1920.jpg" alt="...">
+          <div class="carousel-caption">
+            <h3>火之谷</h3>
+            <p>拉斯维加斯 沙漠 自然公园景观</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+{% endblock %}
+
+
+
+
+{% block content %}
+<!-- Main jumbotron for a primary marketing message or call to action -->
+ 
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+	      	{% if latest_article_list%}
+				<ul>
+					{%for article in latest_article_list %}
+						<div class="col-md-4">
+				          <h2><a href="{% url 'detail' article.id %}">{{article.article_title}}</a></h2>
+				          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. <a class="btn btn-small" href="{% url 'detail' article.id %}" role="button">View details &raquo;</a></p>				          
+				        </div>
+						
+					{% endfor %}
+				</ul>
+			{% else %}
+				<p>No News are available.</p>
+			{% endif %}
+                
+      </div>
+     </div>
+
+    
+<!-- /container -->
+
+
+
+{% endblock %}

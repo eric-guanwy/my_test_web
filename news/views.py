@@ -18,3 +18,10 @@ def detail(request,article_id):
 		'article':article
 	}
 	return render(request,'news/detail.html',context)
+
+def article(request):
+	article_list = Article.objects.order_by('-pub_date')[:20]
+	context = {
+		'article_list':article_list,
+	}
+	return render(request,'news/article.html',context)
