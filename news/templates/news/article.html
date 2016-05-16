@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Eric News Network{% endblock %}
+
+{% block active-control %}
+              <li><a href="/news">Home</a></li>
+              <li class="active"><a href="article.html">Article</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+{% endblock %}
+
+{% block content %}
+<!-- Main jumbotron for a primary marketing message or call to action -->
+ 
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+	      	{% if article_list%}
+				<ul>
+					{%for article in article_list %}
+							<div class="col-md-10">
+					          <h2><a href="{% url 'detail' article.id %}">{{article.article_title}}</a></h2>
+					          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. <a class="btn btn-small" href="{% url 'detail' article.id %}" role="button">View details &raquo;</a></p>				          
+					        </div>     
+						
+					{% endfor %}
+				</ul>
+			{% else %}
+				<p>No News are available.</p>
+			{% endif %}
+                
+      </div>
+     </div>
+    
+{% endblock %}

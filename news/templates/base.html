@@ -25,12 +25,9 @@
       <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-   </head>
 
-  <body>
-
-
-      <nav class="navbar navbar-inverse navbar-static-top">
+ 
+     <nav class="navbar navbar-inverse navbar-static-top">
       <div class="container">
         <div class="navbar-header">
            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -39,14 +36,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><img alt="Eric News" src="../../static/img/favicon.ico"></a>
+          <a class="navbar-brand" href="/news"><img alt="Eric News" src="../../static/img/favicon.ico"></a>
         </div>
 
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            {% block active-control %}
+              <li class="active"><a href="/news">Home</a></li>
+              <li><a href="article.html">Article</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            {% endblock %}
           </ul>
           <form class="navbar-form navbar-right" role="search" aria-label="Left Align">
 
@@ -67,9 +67,16 @@
       </div>      
     </nav>
 
-    <div class="container">
-    {% block banner %} {% endblock %}
-    </div>
+</head>
+
+  <body>
+
+
+     
+
+
+    {% block banner %}<div class="container"></div> {% endblock %}
+
 
     {% block cover %} {% endblock %}
     {% block carousel %} {% endblock %}
@@ -86,27 +93,6 @@
 
 
 
-
-<div class="container">
-
- 
-
-
-<!--div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Dropdown
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
-</div-->
-
-</div>
-
 <div class="page-header">
 
   <div class="container">
@@ -116,6 +102,17 @@
   </div>
 
 </div>
+
+   
+
+   <hr style="height:3px;border:none;border-top:3px double grey;" />
+
+      <footer>
+        <div id="footer" class="container">
+          <p>Eric Guan &copy; Company 2016</p>
+        </div>
+      </footer>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

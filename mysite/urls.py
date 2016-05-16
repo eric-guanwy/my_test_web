@@ -22,4 +22,6 @@ from django.conf.urls.static import static
 urlpatterns = [
 	url(r'^news/',include('news.urls')),
     url(r'^admin/', admin.site.urls),
-] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+    url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve',{'document_root': settings.MEDIA_ROOT},name='media'),
+] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
