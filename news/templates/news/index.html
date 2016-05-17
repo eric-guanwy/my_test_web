@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
     <head>
         <title>Eric News Network</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -11,7 +11,7 @@
    		<link href="../../static/css/bootstrap-theme.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../../static/css/style.css" />
         <link rel="stylesheet" href="http://dreamsky.github.io/main/blog/common/init.css">
-		<script src="../../static/js/cufon-yui.js" type="text/javascript"></script>
+		<!--script src="../../static/js/cufon-yui.js" type="text/javascript"></script-->
 		<script src="../../static/js/ChunkFive_400.font.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			Cufon.replace('h1',{ textShadow: '1px 1px #000'});
@@ -106,7 +106,7 @@
 			      	{% if latest_article_list%}
 						<ul>
 							{%for article in latest_article_list %}
-								<div class="col-md-4">
+								<div class="col-md-4">								
 						          <h2><a href="{% url 'detail' article.id %}">{{article.article_title}}</a></h2>
 						          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. <a class="btn btn-small" href="{% url 'detail' article.id %}" role="button">View details &raquo;</a></p>				          
 						        </div>

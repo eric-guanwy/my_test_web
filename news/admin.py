@@ -6,10 +6,10 @@ from .models import Article
 
 
 class ArticleAdmin(admin.ModelAdmin):
-    def formfield_for_dbfield(self, db_field, **kwargs):
-        if db_field.name == 'article_content':
-            #kwargs['widget'] = GenericContentTypeSelect            
-            pass
-        return super(ArticleAdmin, self).formfield_for_dbfield(db_field, **kwargs)
+	search_fields = ('article_title', 'article_content',) 
+	class Media:
+		js=('/media/js/tiny_mce/tiny_mce.js',
+			'/media/js/textareas.js'
+		)
 
 admin.site.register(Article,ArticleAdmin)

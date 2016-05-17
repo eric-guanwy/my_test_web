@@ -125,7 +125,6 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-
 DAB_FIELD_RENDERER = 'django_admin_bootstrapped.renderers.BootstrapFieldRenderer'
 
 from django.contrib import messages
@@ -134,4 +133,3 @@ MESSAGE_TAGS = {
             messages.WARNING: 'alert-warning warning',
             messages.ERROR: 'alert-danger error'
 }
-
